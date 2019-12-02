@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8FDF5C3E-4747-4AA7-A03D-6DCF60CE8745}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Progress_Manager</RootNamespace>
+    <AssemblyName>Progress Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publikuj\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Calculators.cs" />
+    <Compile Include="Classes\CardioExercise.cs" />
+    <Compile Include="Classes\CardioRoutine.cs" />
+    <Compile Include="Classes\CardioSession.cs" />
+    <Compile Include="Classes\Exercise.cs" />
+    <Compile Include="Classes\OneDaySession.cs" />
+    <Compile Include="Classes\Person.cs" />
+    <Compile Include="Classes\Routine.cs" />
+    <Compile Include="Classes\RoutineManager.cs" />
+    <Compile Include="Classes\StretchingExercise.cs" />
+    <Compile Include="Classes\StretchingRoutine.cs" />
+    <Compile Include="Classes\StretchingSession.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\UserManager.cs" />
+    <Compile Include="Classes\WorkOutRoutine.cs" />
+    <Compile Include="Classes\WorkOutExercise.cs" />
+    <Compile Include="Classes\WorkOutSession.cs" />
+    <Compile Include="Enums\BodyPart.cs" />
+    <Compile Include="Enums\BodyTypes.cs" />
+    <Compile Include="Enums\DaysOfWeek.cs" />
+    <Compile Include="Enums\ExerciseTypes.cs" />
+    <Compile Include="Enums\OnrBodyParts.cs" />
+    <Compile Include="Enums\Sex.cs" />
+    <Compile Include="Forms\LogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogInForm.Designer.cs">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\SignInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SignInForm.Designer.cs">
+      <DependentUpon>SignInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddCardioRoutineUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddCardioRoutineUserControl.Designer.cs">
+      <DependentUpon>AddCardioRoutineUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddCardioSessionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddCardioSessionUserControl.Designer.cs">
+      <DependentUpon>AddCardioSessionUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddRoutineUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddRoutineUserControl.Designer.cs">
+      <DependentUpon>AddRoutineUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddSessionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddSessionUserControl.Designer.cs">
+      <DependentUpon>AddSessionUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddStretchingRoutineUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddStretchingRoutineUserControl.Designer.cs">
+      <DependentUpon>AddStretchingRoutineUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddStretchingSessionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddStretchingSessionUserControl.Designer.cs">
+      <DependentUpon>AddStretchingSessionUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BMIControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\BMIControl.Designer.cs">
+      <DependentUpon>BMIControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CalculatorsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CalculatorsControl.Designer.cs">
+      <DependentUpon>CalculatorsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CardioRoutineManagerUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CardioRoutineManagerUserControl.Designer.cs">
+      <DependentUpon>CardioRoutineManagerUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CPMControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CPMControl.Designer.cs">
+      <DependentUpon>CPMControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CreateCardioRoutineUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CreateCardioRoutineUserControl.Designer.cs">
+      <DependentUpon>CreateCardioRoutineUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CreateRoutineUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CreateRoutineUserControl.Designer.cs">
+      <DependentUpon>CreateRoutineUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CreateStretchingRoutineUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CreateStretchingRoutineUserControl.Designer.cs">
+      <DependentUpon>CreateStretchingRoutineUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DefaultControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DefaultControl.Designer.cs">
+      <DependentUpon>DefaultControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OneRepMaxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\OneRepMaxControl.Designer.cs">
+      <DependentUpon>OneRepMaxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ModifyProfileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ModifyProfileControl.Designer.cs">
+      <DependentUpon>ModifyProfileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProfileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ProfileControl.Designer.cs">
+      <DependentUpon>ProfileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RoutinesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RoutinesControl.Designer.cs">
+      <DependentUpon>RoutinesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RoutinesManagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RoutinesManagerControl.Designer.cs">
+      <DependentUpon>RoutinesManagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ShowCardioRoutineUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ShowCardioRoutineUserControl.Designer.cs">
+      <DependentUpon>ShowCardioRoutineUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ShowProfileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ShowProfileControl.Designer.cs">
+      <DependentUpon>ShowProfileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ShowStretchingRoutineUserControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ShowStretchingRoutineUserControls.Designer.cs">
+      <DependentUpon>ShowStretchingRoutineUserControls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ShowWorkoutRoutineUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ShowWorkoutRoutineUserControl.Designer.cs">
+      <DependentUpon>ShowWorkoutRoutineUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StretchingRoutinesManagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StretchingRoutinesManagerControl.Designer.cs">
+      <DependentUpon>StretchingRoutinesManagerControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\LogInForm.resx">
+      <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SignInForm.resx">
+      <DependentUpon>SignInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserControls\AddCardioRoutineUserControl.resx">
+      <DependentUpon>AddCardioRoutineUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AddCardioSessionUserControl.resx">
+      <DependentUpon>AddCardioSessionUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AddRoutineUserControl.resx">
+      <DependentUpon>AddRoutineUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AddSessionUserControl.resx">
+      <DependentUpon>AddSessionUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AddStretchingRoutineUserControl.resx">
+      <DependentUpon>AddStretchingRoutineUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AddStretchingSessionUserControl.resx">
+      <DependentUpon>AddStretchingSessionUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\BMIControl.resx">
+      <DependentUpon>BMIControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CalculatorsControl.resx">
+      <DependentUpon>CalculatorsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CardioRoutineManagerUserControl.resx">
+      <DependentUpon>CardioRoutineManagerUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CPMControl.resx">
+      <DependentUpon>CPMControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CreateCardioRoutineUserControl.resx">
+      <DependentUpon>CreateCardioRoutineUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CreateRoutineUserControl.resx">
+      <DependentUpon>CreateRoutineUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CreateStretchingRoutineUserControl.resx">
+      <DependentUpon>CreateStretchingRoutineUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DefaultControl.resx">
+      <DependentUpon>DefaultControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\OneRepMaxControl.resx">
+      <DependentUpon>OneRepMaxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ModifyProfileControl.resx">
+      <DependentUpon>ModifyProfileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ProfileControl.resx">
+      <DependentUpon>ProfileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RoutinesControl.resx">
+      <DependentUpon>RoutinesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RoutinesManagerControl.resx">
+      <DependentUpon>RoutinesManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ShowCardioRoutineUserControl.resx">
+      <DependentUpon>ShowCardioRoutineUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ShowProfileControl.resx">
+      <DependentUpon>ShowProfileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ShowStretchingRoutineUserControls.resx">
+      <DependentUpon>ShowStretchingRoutineUserControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ShowWorkoutRoutineUserControl.resx">
+      <DependentUpon>ShowWorkoutRoutineUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StretchingRoutinesManagerControl.resx">
+      <DependentUpon>StretchingRoutinesManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\close_window_48px.png" />
+    <Content Include="Icons\deadlift_48px.png" />
+    <Content Include="Icons\minimize_window_48px.png" />
+    <Content Include="Images\640413_buff-guy-png.png" />
+    <Content Include="Images\aesthetic-bodybuilder-5.png" />
+    <Content Include="Images\calculator.jpg" />
+    <Content Include="Images\dumbbells-wbk.png" />
+    <Content Include="Images\e-books-7sq.png" />
+    <Content Include="Images\gym_equipment_PNG182.png" />
+    <Content Include="Images\how-to-put-together-a-workout-routine.jpeg" />
+    <Content Include="Images\kisspng-muscles-of-the-hip-knee-human-body-hip-pain-try-these-15-useful-hip-flexor-stretches-to-loosen-5badd2e2e6c553.5158807915381183709453.png" />
+    <Content Include="Images\men.png" />
+    <Content Include="Images\muscle-girl-png-picture-1939981-muscle-girl-png-fit-girl-png-610_520.png" />
+    <Content Include="Images\profileimage.jpg" />
+    <Content Include="Images\purepng.com-dumbbell-hanteldumbbellhantelshort-barexercisemuscle-building-17015281361984zoeu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 i x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -39,12 +39,14 @@ namespace Progress_Manager.UserControls
                 CardioRoutine cardioRoutine = RoutineManager.LoadCardioRoutine(openFileDialog.FileName);
                 MessageBox.Show("Cardio Routine (" + cardioRoutine.RoutineName + ") was opened succesfully.");
                 FillListView(cardioRoutine);
-                MessageBox.Show(cardioRoutine.TotalSessions.ToString() + cardioRoutine.TotalSets.ToString());
 
                 cardioRoutine.UpdateRoutine();
                 TotalSetsLabel.Text = "Total Sets: " + cardioRoutine.TotalSets;
-                StartLabel.Text = "Start: " + cardioRoutine.Start;
-                DurationLabel.Text = "Duration: " + cardioRoutine.Duration;
+                StartLabel.Text = "Start: " + cardioRoutine.Start.ToShortDateString();
+                if(cardioRoutine.Duration.TotalDays >= 2)
+                    DurationLabel.Text = "Duration: " + cardioRoutine.Duration.TotalDays.ToString("F0") + " days";
+                else
+                    DurationLabel.Text = "Duration: " + cardioRoutine.Duration.TotalDays.ToString("F0") + " day";
             }
 
         }
@@ -65,9 +67,9 @@ namespace Progress_Manager.UserControls
                 foreach (CardioExercise exercise in session.ExercisesList)
                 {
                     item = new ListViewItem(exercise.ExerciseName);
-                    item.SubItems.Add(exercise.Duration.ToString());
+                    item.SubItems.Add(exercise.Duration.ToLongTimeString());
                     item.SubItems.Add(exercise.Sets.ToString());
-                    item.SubItems.Add(exercise.Rest.ToString());
+                    item.SubItems.Add(exercise.Rest.ToLongTimeString());
                     ExercisesListView.Items.Add(item);
                     itemIndex = ExercisesListView.Items.IndexOf(item);
                     ExercisesListView.Items[itemIndex].Group = ExercisesListView.Groups[groupIndex];

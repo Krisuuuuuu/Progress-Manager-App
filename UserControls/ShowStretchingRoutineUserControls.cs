@@ -43,10 +43,13 @@ namespace Progress_Manager.UserControls
                 stretchingRoutine.UpdateRoutine();
                 TotalExercisesLabel.Text = "Total Exercises: " + stretchingRoutine.TotalExercises;
                 TotalSetsLabel.Text = "Total Sets: " + stretchingRoutine.TotalSets;
-                StartLabel.Text = "Start: " + stretchingRoutine.Start;
-                DurationLabel.Text = "Duration: " + stretchingRoutine.Duration;
-            }
+                StartLabel.Text = "Start: " + stretchingRoutine.Start.ToShortDateString();
+                if (stretchingRoutine.Duration.TotalDays >= 2)
+                    DurationLabel.Text = "Duration: " + stretchingRoutine.Duration.TotalDays.ToString("F0") + " days";
+                else
+                    DurationLabel.Text = "Duration: " + stretchingRoutine.Duration.TotalDays.ToString("F0") + " day";
 
+            }
         }
 
         private void FillListView(StretchingRoutine stretchingRoutine)
@@ -67,7 +70,7 @@ namespace Progress_Manager.UserControls
                 {
                     item = new ListViewItem(exercise.ExerciseName);
                     item.SubItems.Add(exercise.Sets.ToString());
-                    item.SubItems.Add(exercise.Rest.ToString());
+                    item.SubItems.Add(exercise.Rest.ToLongTimeString());
                     ExercisesListView.Items.Add(item);
                     itemIndex = ExercisesListView.Items.IndexOf(item);
                     ExercisesListView.Items[itemIndex].Group = ExercisesListView.Groups[groupIndex];

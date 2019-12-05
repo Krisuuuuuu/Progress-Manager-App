@@ -46,8 +46,11 @@ namespace Progress_Manager.UserControls
                 workOutRoutine.UpdateRoutine();
                 TotalExercisesLabel.Text = "Total Exercises: " + workOutRoutine.TotalExercises;
                 TotalSetsLabel.Text = "Total Sets: " + workOutRoutine.TotalSets;
-                StartLabel.Text = "Start: " + workOutRoutine.Start;
-                DurationLabel.Text = "Duration: " + workOutRoutine.Duration;
+                StartLabel.Text = "Start: " + workOutRoutine.Start.ToShortDateString();
+                if (workOutRoutine.Duration.TotalDays >= 2)
+                    DurationLabel.Text = "Duration: " + workOutRoutine.Duration.TotalDays.ToString("F0") + " days";
+                else
+                    DurationLabel.Text = "Duration: " + workOutRoutine.Duration.TotalDays.ToString("F0") + " day";
             }
 
         }
@@ -73,7 +76,7 @@ namespace Progress_Manager.UserControls
                     item.SubItems.Add(exercise.InitialReps.ToString());
                     item.SubItems.Add(exercise.FinalReps.ToString());
                     item.SubItems.Add(exercise.Sets.ToString());
-                    item.SubItems.Add(exercise.Rest.ToString());
+                    item.SubItems.Add(exercise.Rest.ToLongTimeString());
                     ExercisesListView.Items.Add(item);
                     itemIndex = ExercisesListView.Items.IndexOf(item);
                     ExercisesListView.Items[itemIndex].Group = ExercisesListView.Groups[groupIndex];

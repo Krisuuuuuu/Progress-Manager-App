@@ -169,9 +169,9 @@ namespace Progress_Manager.UserControls
                 if (cardioSession.ExercisesList.Contains(cardioExercise))
                 {
                     ListViewItem item = new ListViewItem(ExerciseNameTextBox.Text);
-                    item.SubItems.Add(DurationPicker.Value.ToString());
+                    item.SubItems.Add(DurationPicker.Value.ToString("T"));
                     item.SubItems.Add(SetsNumericUpDown.Value.ToString());
-                    item.SubItems.Add(RestDatePicker.Value.ToString());
+                    item.SubItems.Add(RestDatePicker.Value.ToString("T"));
                     ExercisesListView.Items.Add(item);
 
                     ResetControls();

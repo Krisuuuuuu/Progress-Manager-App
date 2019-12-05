@@ -205,7 +205,7 @@ namespace Progress_Manager.UserControls
                     item.SubItems.Add(InitialRepsNumericUpDown.Value.ToString());
                     item.SubItems.Add(FinalRepsNumericUpDown.Value.ToString());
                     item.SubItems.Add(SetsNumericUpDown.Value.ToString());
-                    item.SubItems.Add(RestDatePicker.Value.ToString());
+                    item.SubItems.Add(RestDatePicker.Value.ToString("T"));
                     ExercisesListView.Items.Add(item);
 
                     ResetControls();

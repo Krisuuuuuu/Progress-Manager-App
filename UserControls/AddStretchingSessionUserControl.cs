@@ -170,7 +170,7 @@ namespace Progress_Manager.UserControls
                 {
                     ListViewItem item = new ListViewItem(ExerciseNameTextBox.Text);
                     item.SubItems.Add(SetsNumericUpDown.Value.ToString());
-                    item.SubItems.Add(RestDatePicker.Value.ToString());
+                    item.SubItems.Add(RestDatePicker.Value.ToString("T"));
                     ExercisesListView.Items.Add(item);
 
                     ResetControls();

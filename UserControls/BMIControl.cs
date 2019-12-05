@@ -41,7 +41,7 @@ namespace Progress_Manager.UserControls
         {
             BMIValueLabel.Visible = true;
             BMIDescription.Visible = true;
-            BMIValueLabel.Text = bmi.ToString();
+            BMIValueLabel.Text = bmi.ToString("F");
 
             if(bmi<16)
             {

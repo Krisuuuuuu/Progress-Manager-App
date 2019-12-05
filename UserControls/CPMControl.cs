@@ -65,7 +65,7 @@ namespace Progress_Manager.UserControls
             ushort cPM = Calculators.CPMCalculator((ushort)HeightNumericUpDown.Value, (double)WeightNumericUpDown.Value, (byte)AgeNumericUpDown.Value,
                 SexComboBox.Text, activity, ReductionCheckBox.Checked);
 
-            CPMValueLabel.Text = cPM.ToString();
+            CPMValueLabel.Text = cPM.ToString("F0");
         }
 
         private void BackButton_Click(object sender, EventArgs e)

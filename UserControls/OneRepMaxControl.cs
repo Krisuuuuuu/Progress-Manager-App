@@ -30,7 +30,7 @@ namespace Progress_Manager.UserControls
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             ushort oneRepMax = Calculators.OneRepMaxCalculator((ushort)WeightNumericUpDown.Value, BodyTypeComboBox.Text);
-            OneRepMaxValueLabel.Text = oneRepMax.ToString();
+            OneRepMaxValueLabel.Text = oneRepMax.ToString("F1");
         }
 
         private void BackButton_Click(object sender, EventArgs e)

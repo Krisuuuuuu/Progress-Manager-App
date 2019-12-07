@@ -34,20 +34,28 @@ namespace Progress_Manager.UserControls
 
             DialogResult dialogResult = openFileDialog.ShowDialog();
 
-            if (dialogResult == DialogResult.OK)
+            try
             {
-                CardioRoutine cardioRoutine = RoutineManager.LoadCardioRoutine(openFileDialog.FileName);
-                MessageBox.Show("Cardio Routine (" + cardioRoutine.RoutineName + ") was opened succesfully.");
-                FillListView(cardioRoutine);
+                if (dialogResult == DialogResult.OK)
+                {
+                    CardioRoutine cardioRoutine = RoutineManager.LoadCardioRoutine(openFileDialog.FileName);
+                    MessageBox.Show("Cardio Routine (" + cardioRoutine.RoutineName + ") was opened succesfully.");
+                    FillListView(cardioRoutine);
 
-                cardioRoutine.UpdateRoutine();
-                TotalSetsLabel.Text = "Total Sets: " + cardioRoutine.TotalSets;
-                StartLabel.Text = "Start: " + cardioRoutine.Start.ToShortDateString();
-                if(cardioRoutine.Duration.TotalDays >= 2)
-                    DurationLabel.Text = "Duration: " + cardioRoutine.Duration.TotalDays.ToString("F0") + " days";
-                else
-                    DurationLabel.Text = "Duration: " + cardioRoutine.Duration.TotalDays.ToString("F0") + " day";
+                    cardioRoutine.UpdateRoutine();
+                    TotalSetsLabel.Text = "Total Sets: " + cardioRoutine.TotalSets;
+                    StartLabel.Text = "Start: " + cardioRoutine.Start.ToShortDateString();
+                    if (cardioRoutine.Duration.TotalDays >= 2)
+                        DurationLabel.Text = "Duration: " + cardioRoutine.Duration.TotalDays.ToString("F0") + " days";
+                    else
+                        DurationLabel.Text = "Duration: " + cardioRoutine.Duration.TotalDays.ToString("F0") + " day";
+                }
             }
+            catch(NullReferenceException)
+            {
+
+            }
+
 
         }
         private void FillListView(CardioRoutine cardioRoutine)

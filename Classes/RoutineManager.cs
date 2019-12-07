@@ -71,10 +71,18 @@ namespace Progress_Manager.Classes
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            using(Stream input = File.OpenRead(routinePath))
+            try
             {
-                workOutRoutineFromTheFile = (WorkOutRoutine)binaryFormatter.Deserialize(input);
-                Console.WriteLine("Workout Routine (" + workOutRoutineFromTheFile.RoutineName + ") was deserialized succesfully.");
+                using (Stream input = File.OpenRead(routinePath))
+                {
+                    workOutRoutineFromTheFile = (WorkOutRoutine)binaryFormatter.Deserialize(input);
+                    Console.WriteLine("Workout Routine (" + workOutRoutineFromTheFile.RoutineName + ") was deserialized succesfully.");
+                }
+            }
+            catch(InvalidCastException)
+            {
+                workOutRoutineFromTheFile = null;
+                MessageBox.Show("Select workout routine properly.");
             }
 
             return workOutRoutineFromTheFile;
@@ -86,10 +94,18 @@ namespace Progress_Manager.Classes
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            using (Stream input = File.OpenRead(routinePath))
+            try
             {
-                stretchingRoutineFromTheFile = (StretchingRoutine)binaryFormatter.Deserialize(input);
-                Console.WriteLine("Workout Routine (" + stretchingRoutineFromTheFile.RoutineName + ") was deserialized succesfully.");
+                using (Stream input = File.OpenRead(routinePath))
+                {
+                    stretchingRoutineFromTheFile = (StretchingRoutine)binaryFormatter.Deserialize(input);
+                    Console.WriteLine("Workout Routine (" + stretchingRoutineFromTheFile.RoutineName + ") was deserialized succesfully.");
+                }
+            }
+            catch(InvalidCastException)
+            {
+                stretchingRoutineFromTheFile = null;
+                MessageBox.Show("Select stretching routine properly.");
             }
 
             return stretchingRoutineFromTheFile;
@@ -101,11 +117,20 @@ namespace Progress_Manager.Classes
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            using (Stream input = File.OpenRead(routinePath))
+            try
             {
-                cardioRoutineFromTheFile = (CardioRoutine)binaryFormatter.Deserialize(input);
-                Console.WriteLine("Workout Routine (" + cardioRoutineFromTheFile.RoutineName + ") was deserialized succesfully.");
+                using (Stream input = File.OpenRead(routinePath))
+                {
+                    cardioRoutineFromTheFile = (CardioRoutine)binaryFormatter.Deserialize(input);
+                    Console.WriteLine("Workout Routine (" + cardioRoutineFromTheFile.RoutineName + ") was deserialized succesfully.");
+                }
             }
+            catch(InvalidCastException)
+            {
+                MessageBox.Show("Select cardio routine properly.");
+                cardioRoutineFromTheFile = null;
+            }
+
 
             return cardioRoutineFromTheFile;
         }

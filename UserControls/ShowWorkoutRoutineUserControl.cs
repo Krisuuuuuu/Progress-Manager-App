@@ -37,20 +37,27 @@ namespace Progress_Manager.UserControls
 
             DialogResult dialogResult = openFileDialog.ShowDialog();
 
-            if (dialogResult == DialogResult.OK)
+            try
             {
-                WorkOutRoutine workOutRoutine = RoutineManager.LoadWorkOutRoutine(openFileDialog.FileName);
-                MessageBox.Show("Workout Routine (" + workOutRoutine.RoutineName + ") was opened succesfully.");
-                FillListView(workOutRoutine);
+                if (dialogResult == DialogResult.OK)
+                {
+                    WorkOutRoutine workOutRoutine = RoutineManager.LoadWorkOutRoutine(openFileDialog.FileName);
+                    MessageBox.Show("Workout Routine (" + workOutRoutine.RoutineName + ") was opened succesfully.");
+                    FillListView(workOutRoutine);
 
-                workOutRoutine.UpdateRoutine();
-                TotalExercisesLabel.Text = "Total Exercises: " + workOutRoutine.TotalExercises;
-                TotalSetsLabel.Text = "Total Sets: " + workOutRoutine.TotalSets;
-                StartLabel.Text = "Start: " + workOutRoutine.Start.ToShortDateString();
-                if (workOutRoutine.Duration.TotalDays >= 2)
-                    DurationLabel.Text = "Duration: " + workOutRoutine.Duration.TotalDays.ToString("F0") + " days";
-                else
-                    DurationLabel.Text = "Duration: " + workOutRoutine.Duration.TotalDays.ToString("F0") + " day";
+                    workOutRoutine.UpdateRoutine();
+                    TotalExercisesLabel.Text = "Total Exercises: " + workOutRoutine.TotalExercises;
+                    TotalSetsLabel.Text = "Total Sets: " + workOutRoutine.TotalSets;
+                    StartLabel.Text = "Start: " + workOutRoutine.Start.ToShortDateString();
+                    if (workOutRoutine.Duration.TotalDays >= 2)
+                        DurationLabel.Text = "Duration: " + workOutRoutine.Duration.TotalDays.ToString("F0") + " days";
+                    else
+                        DurationLabel.Text = "Duration: " + workOutRoutine.Duration.TotalDays.ToString("F0") + " day";
+                }
+            }
+            catch(NullReferenceException)
+            {
+
             }
 
         }

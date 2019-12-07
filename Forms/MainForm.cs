@@ -32,6 +32,7 @@ namespace Progress_Manager.Forms
             InitializeComponent();
             UserNameLabel.Text = UserManager.WhoIsCurrentLoged;
             CheckControls();
+            RoutineManager.ResetPaths();
             CentralPanel.Controls["defaultControl"].BringToFront(); 
         }
 

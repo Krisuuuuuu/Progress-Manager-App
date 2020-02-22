@@ -16,11 +16,21 @@ namespace Progress_Manager.UserControls
         public CreateStretchingRoutineUserControl()
         {
             InitializeComponent();
+            NameTextBox.Text = "Name";
             StartDatePicker.Value = DateTime.Now;
-            EndDatePicker.Value = DateTime.Now;
+            EndDatePicker.Value = DateTime.Now.AddDays(1);
             StartDatePicker.MinDate = DateTime.Now;
-            EndDatePicker.MinDate = DateTime.Now;
+            EndDatePicker.MinDate = DateTime.Now.AddDays(1);
         }
+        private void ResetTextBoxesAndDataPickersValues()
+        {
+            NameTextBox.Text = "Name";
+            StartDatePicker.Value = DateTime.Now;
+            EndDatePicker.Value = DateTime.Now.AddDays(1);
+            StartDatePicker.MinDate = DateTime.Now;
+            EndDatePicker.MinDate = DateTime.Now.AddDays(1);
+        }
+
         private void ResetControls()
         {
             IncorrectNameLabel.Visible = false;
@@ -31,6 +41,7 @@ namespace Progress_Manager.UserControls
             NameTextBox.BackColor = Color.White;
 
         }
+
         private bool CheckControls()
         {
             bool isConfirmed = true;
@@ -66,6 +77,7 @@ namespace Progress_Manager.UserControls
             if (isConfirmed == true)
             {
                 RoutineManager.MainStretchingRoutine = new StretchingRoutine(name, start, end);
+                ResetTextBoxesAndDataPickersValues();
                 this.Parent.Controls["addStretchingRoutineUserControl"].BringToFront();
             }
         }

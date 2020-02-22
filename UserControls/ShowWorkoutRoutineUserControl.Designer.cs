@@ -51,7 +51,7 @@
             this.ShowSessionLabel.ForeColor = System.Drawing.Color.White;
             this.ShowSessionLabel.Location = new System.Drawing.Point(20, 20);
             this.ShowSessionLabel.Name = "ShowSessionLabel";
-            this.ShowSessionLabel.Size = new System.Drawing.Size(334, 34);
+            this.ShowSessionLabel.Size = new System.Drawing.Size(335, 34);
             this.ShowSessionLabel.TabIndex = 5;
             this.ShowSessionLabel.Text = "Show Work Out Routine";
             // 
@@ -134,7 +134,7 @@
             this.TotalSetsLabel.ForeColor = System.Drawing.Color.White;
             this.TotalSetsLabel.Location = new System.Drawing.Point(16, 340);
             this.TotalSetsLabel.Name = "TotalSetsLabel";
-            this.TotalSetsLabel.Size = new System.Drawing.Size(112, 23);
+            this.TotalSetsLabel.Size = new System.Drawing.Size(113, 23);
             this.TotalSetsLabel.TabIndex = 34;
             this.TotalSetsLabel.Text = "Total Sets: ";
             // 
@@ -145,7 +145,7 @@
             this.TotalExercisesLabel.ForeColor = System.Drawing.Color.White;
             this.TotalExercisesLabel.Location = new System.Drawing.Point(240, 340);
             this.TotalExercisesLabel.Name = "TotalExercisesLabel";
-            this.TotalExercisesLabel.Size = new System.Drawing.Size(159, 23);
+            this.TotalExercisesLabel.Size = new System.Drawing.Size(160, 23);
             this.TotalExercisesLabel.TabIndex = 34;
             this.TotalExercisesLabel.Text = "Total Exercises: ";
             // 
@@ -156,7 +156,7 @@
             this.StartLabel.ForeColor = System.Drawing.Color.White;
             this.StartLabel.Location = new System.Drawing.Point(16, 387);
             this.StartLabel.Name = "StartLabel";
-            this.StartLabel.Size = new System.Drawing.Size(65, 23);
+            this.StartLabel.Size = new System.Drawing.Size(67, 23);
             this.StartLabel.TabIndex = 34;
             this.StartLabel.Text = "Start: ";
             // 
@@ -167,7 +167,7 @@
             this.DurationLabel.ForeColor = System.Drawing.Color.White;
             this.DurationLabel.Location = new System.Drawing.Point(240, 387);
             this.DurationLabel.Name = "DurationLabel";
-            this.DurationLabel.Size = new System.Drawing.Size(103, 23);
+            this.DurationLabel.Size = new System.Drawing.Size(104, 23);
             this.DurationLabel.TabIndex = 34;
             this.DurationLabel.Text = "Duration: ";
             // 

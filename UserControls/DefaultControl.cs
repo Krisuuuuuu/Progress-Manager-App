@@ -20,9 +20,5 @@ namespace Progress_Manager.UserControls
             HelloLabel.Text = "Good Morning, " + UserManager.WhoIsCurrentLoged + "\n Today is: " + DateTime.Now.ToString("D");
         }
 
-        private void HelloLabel_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

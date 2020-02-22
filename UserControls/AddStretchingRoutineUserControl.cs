@@ -67,12 +67,11 @@ namespace Progress_Manager.UserControls
 
             if (isConfirmed == true)
             {
-                if (!Directory.Exists(RoutineManager.routineDirectoryPath))
-                    Directory.CreateDirectory(RoutineManager.routineDirectoryPath);
+                RoutineManager.CheckPaths();
 
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Title = "Save stretching routine";
-                saveFileDialog.FileName = RoutineManager.MainStretchingRoutine.RoutineName;
+                saveFileDialog.FileName = RoutineManager.MainStretchingRoutine.RoutineName + " Stretching Routine"; 
                 saveFileDialog.InitialDirectory = RoutineManager.routineDirectoryPath;
 
                 DialogResult dialogResult = saveFileDialog.ShowDialog();

@@ -16,10 +16,11 @@ namespace Progress_Manager.UserControls
         public CreateRoutineUserControl()
         {
             InitializeComponent();
+            NameTextBox.Text = "Name";
             StartDatePicker.Value = DateTime.Now;
-            EndDatePicker.Value = DateTime.Now;
+            EndDatePicker.Value = DateTime.Now.AddDays(1);
             StartDatePicker.MinDate = DateTime.Now;
-            EndDatePicker.MinDate = DateTime.Now;
+            EndDatePicker.MinDate = DateTime.Now.AddDays(1);
         }
 
         private void ResetControls()
@@ -31,6 +32,14 @@ namespace Progress_Manager.UserControls
             NameTextBox.ForeColor = Color.DarkGray;
             NameTextBox.BackColor = Color.White;
            
+        }
+        public void ResetTextBoxesAndDataPickersValues()
+        {
+            NameTextBox.Text = "Name";
+            StartDatePicker.Value = DateTime.Now;
+            EndDatePicker.Value = DateTime.Now.AddDays(1);
+            StartDatePicker.MinDate = DateTime.Now;
+            EndDatePicker.MinDate = DateTime.Now.AddDays(1);
         }
 
         private bool CheckControls()
@@ -69,6 +78,7 @@ namespace Progress_Manager.UserControls
             if (isConfirmed == true)
             {
                 RoutineManager.MainWorkOutRoutine = new WorkOutRoutine(name, start, end);
+                ResetTextBoxesAndDataPickersValues();
                 this.Parent.Controls["addRoutineUserControl"].BringToFront();
             }
         }

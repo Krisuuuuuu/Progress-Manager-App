@@ -28,6 +28,8 @@ namespace Progress_Manager.UserControls
         }
         public void ShowRoutine()
         {
+            ResetControls();
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = RoutineManager.routineDirectoryPath;
             openFileDialog.Title = "Open routine";
@@ -36,18 +38,25 @@ namespace Progress_Manager.UserControls
 
             if (dialogResult == DialogResult.OK)
             {
-                StretchingRoutine stretchingRoutine = RoutineManager.LoadStretchingtRoutine(openFileDialog.FileName);
-                MessageBox.Show("Workout Routine (" + stretchingRoutine.RoutineName + ") was opened succesfully.");
-                FillListView(stretchingRoutine);
+                try
+                {
+                    StretchingRoutine stretchingRoutine = RoutineManager.LoadStretchingtRoutine(openFileDialog.FileName);
+                    MessageBox.Show("Stretching routine (" + stretchingRoutine.RoutineName + ") was opened succesfully.");
+                    FillListView(stretchingRoutine);
 
-                stretchingRoutine.UpdateRoutine();
-                TotalExercisesLabel.Text = "Total Exercises: " + stretchingRoutine.TotalExercises;
-                TotalSetsLabel.Text = "Total Sets: " + stretchingRoutine.TotalSets;
-                StartLabel.Text = "Start: " + stretchingRoutine.Start.ToShortDateString();
-                if (stretchingRoutine.Duration.TotalDays >= 2)
-                    DurationLabel.Text = "Duration: " + stretchingRoutine.Duration.TotalDays.ToString("F0") + " days";
-                else
-                    DurationLabel.Text = "Duration: " + stretchingRoutine.Duration.TotalDays.ToString("F0") + " day";
+                    stretchingRoutine.UpdateRoutine();
+                    TotalExercisesLabel.Text = "Total Exercises: " + stretchingRoutine.TotalExercises;
+                    TotalSetsLabel.Text = "Total Sets: " + stretchingRoutine.TotalSets;
+                    StartLabel.Text = "Start: " + stretchingRoutine.Start.ToShortDateString();
+                    if (stretchingRoutine.Duration.TotalDays >= 2)
+                        DurationLabel.Text = "Duration: " + stretchingRoutine.Duration.TotalDays.ToString("F0") + " days";
+                    else
+                        DurationLabel.Text = "Duration: " + stretchingRoutine.Duration.TotalDays.ToString("F0") + " day";
+                }
+                catch(InvalidCastException)
+                {
+                    MessageBox.Show("Select the proper stretching routine.");
+                }
 
             }
         }

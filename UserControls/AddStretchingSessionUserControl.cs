@@ -173,6 +173,7 @@ namespace Progress_Manager.UserControls
                     item.SubItems.Add(RestDatePicker.Value.ToString("T"));
                     ExercisesListView.Items.Add(item);
 
+                    UpdateControls();
                     ResetControls();
                 }
 
@@ -224,7 +225,7 @@ namespace Progress_Manager.UserControls
             {
                 ExercisesListView.SelectedItems[0].Remove();
             }
-            catch (ArgumentOutOfRangeException e)
+            catch (ArgumentOutOfRangeException)
             {
                 IncorrectExerciseToDeletingLabel.Visible = true;
             }

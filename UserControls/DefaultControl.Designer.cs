@@ -53,7 +53,6 @@
             this.HelloLabel.TabIndex = 1;
             this.HelloLabel.Text = "Good Morning, Username";
             this.HelloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.HelloLabel.Click += new System.EventHandler(this.HelloLabel_Click);
             // 
             // DefaultControl
             // 

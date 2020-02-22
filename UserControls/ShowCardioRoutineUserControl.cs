@@ -28,35 +28,36 @@ namespace Progress_Manager.UserControls
         }
         public void ShowRoutine()
         {
+            ResetControls();
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = RoutineManager.routineDirectoryPath;
             openFileDialog.Title = "Open routine";
 
             DialogResult dialogResult = openFileDialog.ShowDialog();
 
-            try
+            if (dialogResult == DialogResult.OK)
             {
-                if (dialogResult == DialogResult.OK)
+                try
                 {
                     CardioRoutine cardioRoutine = RoutineManager.LoadCardioRoutine(openFileDialog.FileName);
-                    MessageBox.Show("Cardio Routine (" + cardioRoutine.RoutineName + ") was opened succesfully.");
+                    MessageBox.Show("Cardio routine (" + cardioRoutine.RoutineName + ") was opened succesfully.");
                     FillListView(cardioRoutine);
 
                     cardioRoutine.UpdateRoutine();
                     TotalSetsLabel.Text = "Total Sets: " + cardioRoutine.TotalSets;
                     StartLabel.Text = "Start: " + cardioRoutine.Start.ToShortDateString();
+
                     if (cardioRoutine.Duration.TotalDays >= 2)
                         DurationLabel.Text = "Duration: " + cardioRoutine.Duration.TotalDays.ToString("F0") + " days";
                     else
                         DurationLabel.Text = "Duration: " + cardioRoutine.Duration.TotalDays.ToString("F0") + " day";
                 }
+                catch (InvalidCastException)
+                {
+                    MessageBox.Show("Select the proper cardio routine.");
+                }
             }
-            catch(NullReferenceException)
-            {
-
-            }
-
-
         }
         private void FillListView(CardioRoutine cardioRoutine)
         {

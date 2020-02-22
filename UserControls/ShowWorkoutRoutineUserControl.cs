@@ -31,36 +31,43 @@ namespace Progress_Manager.UserControls
 
         public void ShowRoutine()
         {
+            ResetControls();
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = RoutineManager.routineDirectoryPath;
             openFileDialog.Title = "Open routine";
 
             DialogResult dialogResult = openFileDialog.ShowDialog();
 
-            try
+
+            if (dialogResult == DialogResult.OK)
             {
-                if (dialogResult == DialogResult.OK)
+                try
                 {
                     WorkOutRoutine workOutRoutine = RoutineManager.LoadWorkOutRoutine(openFileDialog.FileName);
-                    MessageBox.Show("Workout Routine (" + workOutRoutine.RoutineName + ") was opened succesfully.");
+                    MessageBox.Show("Work out routine (" + workOutRoutine.RoutineName + ") was opened succesfully.");
+
                     FillListView(workOutRoutine);
 
                     workOutRoutine.UpdateRoutine();
                     TotalExercisesLabel.Text = "Total Exercises: " + workOutRoutine.TotalExercises;
                     TotalSetsLabel.Text = "Total Sets: " + workOutRoutine.TotalSets;
                     StartLabel.Text = "Start: " + workOutRoutine.Start.ToShortDateString();
+
                     if (workOutRoutine.Duration.TotalDays >= 2)
                         DurationLabel.Text = "Duration: " + workOutRoutine.Duration.TotalDays.ToString("F0") + " days";
                     else
                         DurationLabel.Text = "Duration: " + workOutRoutine.Duration.TotalDays.ToString("F0") + " day";
                 }
-            }
-            catch(NullReferenceException)
-            {
+                catch (InvalidCastException)
+                {
+                    MessageBox.Show("Select the proper work out routine.");
+                }
 
             }
 
         }
+    
 
         private void FillListView(WorkOutRoutine workOutRoutine)
         {

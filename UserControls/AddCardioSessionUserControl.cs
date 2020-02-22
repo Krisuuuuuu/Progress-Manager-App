@@ -48,7 +48,6 @@ namespace Progress_Manager.UserControls
             ExerciseNameTextBox.Text = "Exercise name";
             RestDatePicker.Value = RestDatePicker.MinDate;
             SetsNumericUpDown.Value = 1;
-
         }
 
         private void SetControlsVisibility(bool isSessionExist)
@@ -173,7 +172,7 @@ namespace Progress_Manager.UserControls
                     item.SubItems.Add(SetsNumericUpDown.Value.ToString());
                     item.SubItems.Add(RestDatePicker.Value.ToString("T"));
                     ExercisesListView.Items.Add(item);
-
+                    UpdateControls();
                     ResetControls();
                 }
 
@@ -222,7 +221,7 @@ namespace Progress_Manager.UserControls
             {
                 ExercisesListView.SelectedItems[0].Remove();
             }
-            catch (ArgumentOutOfRangeException e)
+            catch (ArgumentOutOfRangeException)
             {
                 IncorrectExerciseToDeletingLabel.Visible = true;
             }

@@ -26,30 +26,15 @@ namespace Progress_Manager.Classes
             routineFilePath = routineDirectoryPath + @"\";
         }
 
-        public static void AddRoutine(Routine myRoutine)
+        public static void CheckPaths()
         {
+            ResetPaths();
 
             if (!Directory.Exists(mainDirectoryPath))
                 Directory.CreateDirectory(mainDirectoryPath);
 
-           if(myRoutine is WorkOutRoutine)
-            {
-                routineDirectoryPath += @"\WorkOutRoutines";
-                routineFilePath = routineDirectoryPath + @"\" + myRoutine.RoutineName;
-
-                if (!Directory.Exists(routineDirectoryPath))
-                    Directory.Exists(routineDirectoryPath);
-
-                if(!File.Exists(routineFilePath))
-                {
-                    MessageBox.Show("Routine (" + myRoutine.RoutineName + ") has been added before.");
-                    return;
-                }
-
-                SerializeRoutine(myRoutine);
-
-            }
-
+            if (!Directory.Exists(routineDirectoryPath))
+                Directory.CreateDirectory(routineDirectoryPath);
         }
 
         public static void SerializeRoutine(Routine myRoutine)
@@ -71,18 +56,9 @@ namespace Progress_Manager.Classes
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            try
+            using (Stream input = File.OpenRead(routinePath))
             {
-                using (Stream input = File.OpenRead(routinePath))
-                {
-                    workOutRoutineFromTheFile = (WorkOutRoutine)binaryFormatter.Deserialize(input);
-                    Console.WriteLine("Workout Routine (" + workOutRoutineFromTheFile.RoutineName + ") was deserialized succesfully.");
-                }
-            }
-            catch(InvalidCastException)
-            {
-                workOutRoutineFromTheFile = null;
-                MessageBox.Show("Select workout routine properly.");
+                workOutRoutineFromTheFile = (WorkOutRoutine)binaryFormatter.Deserialize(input);
             }
 
             return workOutRoutineFromTheFile;
@@ -94,18 +70,9 @@ namespace Progress_Manager.Classes
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            try
+            using (Stream input = File.OpenRead(routinePath))
             {
-                using (Stream input = File.OpenRead(routinePath))
-                {
-                    stretchingRoutineFromTheFile = (StretchingRoutine)binaryFormatter.Deserialize(input);
-                    Console.WriteLine("Workout Routine (" + stretchingRoutineFromTheFile.RoutineName + ") was deserialized succesfully.");
-                }
-            }
-            catch(InvalidCastException)
-            {
-                stretchingRoutineFromTheFile = null;
-                MessageBox.Show("Select stretching routine properly.");
+                stretchingRoutineFromTheFile = (StretchingRoutine)binaryFormatter.Deserialize(input);
             }
 
             return stretchingRoutineFromTheFile;
@@ -117,20 +84,10 @@ namespace Progress_Manager.Classes
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            try
+            using (Stream input = File.OpenRead(routinePath))
             {
-                using (Stream input = File.OpenRead(routinePath))
-                {
-                    cardioRoutineFromTheFile = (CardioRoutine)binaryFormatter.Deserialize(input);
-                    Console.WriteLine("Workout Routine (" + cardioRoutineFromTheFile.RoutineName + ") was deserialized succesfully.");
-                }
+                cardioRoutineFromTheFile = (CardioRoutine)binaryFormatter.Deserialize(input);
             }
-            catch(InvalidCastException)
-            {
-                MessageBox.Show("Select cardio routine properly.");
-                cardioRoutineFromTheFile = null;
-            }
-
 
             return cardioRoutineFromTheFile;
         }

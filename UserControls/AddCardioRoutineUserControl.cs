@@ -71,12 +71,11 @@ namespace Progress_Manager.UserControls
 
             if (isConfirmed == true)
             {
-                if (!Directory.Exists(RoutineManager.routineDirectoryPath))
-                    Directory.CreateDirectory(RoutineManager.routineDirectoryPath);
+                RoutineManager.CheckPaths();
 
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Title = "Save cardio routine";
-                saveFileDialog.FileName = RoutineManager.MainCardioRoutine.RoutineName;
+                saveFileDialog.FileName = RoutineManager.MainCardioRoutine.RoutineName + " Cardio Routine";
                 saveFileDialog.InitialDirectory = RoutineManager.routineDirectoryPath;
 
                 DialogResult dialogResult = saveFileDialog.ShowDialog();

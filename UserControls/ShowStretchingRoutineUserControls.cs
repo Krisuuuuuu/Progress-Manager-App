@@ -28,18 +28,20 @@ namespace Progress_Manager.UserControls
         }
         public void ShowRoutine()
         {
+            ResetControls();
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = RoutineManager.routineDirectoryPath;
             openFileDialog.Title = "Open routine";
 
             DialogResult dialogResult = openFileDialog.ShowDialog();
 
-            try
+            if (dialogResult == DialogResult.OK)
             {
-                if (dialogResult == DialogResult.OK)
+                try
                 {
                     StretchingRoutine stretchingRoutine = RoutineManager.LoadStretchingtRoutine(openFileDialog.FileName);
-                    MessageBox.Show("Workout Routine (" + stretchingRoutine.RoutineName + ") was opened succesfully.");
+                    MessageBox.Show("Stretching routine (" + stretchingRoutine.RoutineName + ") was opened succesfully.");
                     FillListView(stretchingRoutine);
 
                     stretchingRoutine.UpdateRoutine();
@@ -50,11 +52,11 @@ namespace Progress_Manager.UserControls
                         DurationLabel.Text = "Duration: " + stretchingRoutine.Duration.TotalDays.ToString("F0") + " days";
                     else
                         DurationLabel.Text = "Duration: " + stretchingRoutine.Duration.TotalDays.ToString("F0") + " day";
-
                 }
-            }
-            catch(NullReferenceException)
-            {
+                catch (InvalidCastException)
+                {
+                    MessageBox.Show("Select the proper stretching routine.");
+                }
 
             }
 
